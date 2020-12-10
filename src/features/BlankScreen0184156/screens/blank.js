@@ -24,7 +24,12 @@ export default class Blank extends React.Component {
     }
   }
 
-  state = { TextInput_3: "", CheckBox_25: true }
+  state = {
+    TextInput_3: "",
+    CheckBox_25: true,
+    DateTimePicker_30: new Date(""),
+    Switch_62: true
+  }
 
   render = () => (
     <View style={styles.View_1}>
@@ -40,6 +45,20 @@ export default class Blank extends React.Component {
         checked={this.state.CheckBox_25}
         onPress={nextChecked => this.setState({ CheckBox_25: nextChecked })}
       />
+      <DateTimePicker
+        showIcon={false}
+        date={this.state.DateTimePicker_30}
+        onDateChange={selectedDate =>
+          this.setState({ DateTimePicker_30: selectedDate })
+        }
+      />
+      <Slider value={50} minimumValue={0} maximumValue={100} />
+      <Switch
+        trackColor={{ false: "#C0CCDA", true: "#409EFF" }}
+        style={styles.Switch_62}
+        value={this.state.Switch_62}
+        onValueChange={nextChecked => this.setState({ Switch_62: nextChecked })}
+      />
     </View>
   )
 }
@@ -49,5 +68,8 @@ const styles = StyleSheet.create({
   TextInput_3: {},
   View_7: {},
   Button_5: {},
-  CheckBox_25: {}
+  CheckBox_25: {},
+  DateTimePicker_30: {},
+  Slider_33: {},
+  Switch_62: { alignSelf: "flex-start" }
 })
